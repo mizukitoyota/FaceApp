@@ -32,7 +32,7 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <action selector="submitButton:" destination="LYy-xp-yqs" eventType="touchUpInside" id="A0t-lS-ccE"/>
+                                            <action selector="submitButton:" destination="LYy-xp-yqs" eventType="touchUpInside" id="Tfv-fO-Io4"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAm-Fu-NYQ">
@@ -105,8 +105,8 @@
                         <outlet property="ImageView" destination="Y0S-Zy-U6p" id="xfb-e6-Jup"/>
                         <outlet property="TopScreenView" destination="edw-2f-2tb" id="igo-3c-nbV"/>
                         <outlet property="TopTitle" destination="puH-br-v5i" id="6Va-ML-UWt"/>
-                        <outlet property="cameraButton" destination="nAm-Fu-NYQ" id="c3X-Aa-4DV"/>
-                        <outlet property="goFaceApi" destination="2sd-JC-LSo" id="On6-UK-R8f"/>
+                        <outlet property="cameraButton" destination="nAm-Fu-NYQ" id="eln-WH-pVP"/>
+                        <outlet property="goFaceApi" destination="2sd-JC-LSo" id="Jos-1l-2B7"/>
                         <outlet property="navigationTitle" destination="GEl-4c-ft3" id="8ym-1s-spv"/>
                         <outlet property="selectImage" destination="1PQ-qC-Zgj" id="ZzT-4L-9IA"/>
                     </connections>
