@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TopScreenViewModel: UIView {
+class TopScreenViewModel {
 
     /// ModelとViewの仲介
     /// Viewからユーザアクションの通知を受けModelのデータを更新

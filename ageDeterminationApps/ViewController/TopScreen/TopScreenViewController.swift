@@ -56,7 +56,7 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
         // タイトル
         selectImage.setTitle("イメージの選択", for: .normal)
         // タイトルの色
-        selectImage.setTitleColor(UIColor.red, for: .normal)
+        selectImage.setTitleColor(.red, for: .normal)
         selectImage.layer.cornerRadius = 10.0
         selectImage.titleLabel?.adjustsFontSizeToFitWidth = true
     }
@@ -65,7 +65,7 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
         // タイトル
         cameraButton.setTitle("カメラ起動", for: .normal)
         // タイトルの色
-        cameraButton.setTitleColor(UIColor.red, for: .normal)
+        cameraButton.setTitleColor(.red, for: .normal)
         cameraButton.layer.cornerRadius = 10.0
         cameraButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
@@ -74,7 +74,7 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
         // タイトル
         goFaceApi.setTitle("GO", for: .normal)
         // タイトルの色
-        goFaceApi.setTitleColor(UIColor.red, for: .normal)
+        goFaceApi.setTitleColor(.red, for: .normal)
         goFaceApi.layer.cornerRadius = 20.0
         goFaceApi.titleLabel?.adjustsFontSizeToFitWidth = true
     }
