@@ -33,11 +33,7 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
         self.navigationBarSetTitle()
         self.setButtonView()
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
+        
     // 画像が選択された時に呼ばれる
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])  {
         
