@@ -13,7 +13,7 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var topTitle: UINavigationBar!
     @IBOutlet weak var buttonView: UIView!
     @IBOutlet weak var imageView: UIImageView! {
-        didSet {
+        willSet {
             // デフォルトの画像を表示する
             imageView.image = UIImage(named: "pop_gazouha_image_desu.png")
             imageView.contentMode = .scaleAspectFit
