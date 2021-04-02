@@ -12,7 +12,7 @@
         <!--Top Screen View Controller-->
         <scene sceneID="zTK-Mm-oje">
             <objects>
-                <viewController id="LYy-xp-yqs" customClass="TopScreenViewController" customModule="ageDeterminationApps" sceneMemberID="viewController">
+                <viewController id="LYy-xp-yqs" customClass="TopScreenViewController" customModule="ageDeterminationApps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="edw-2f-2tb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -106,11 +106,11 @@
                         <outlet property="apiButton" destination="2sd-JC-LSo" id="fNi-OC-JkQ"/>
                         <outlet property="buttonView" destination="5Xk-Ij-J3Q" id="hNg-nn-mw4"/>
                         <outlet property="cameraButton" destination="nAm-Fu-NYQ" id="eln-WH-pVP"/>
-                        <outlet property="imageView" destination="Y0S-Zy-U6p" id="OKe-wq-ffn"/>
-                        <outlet property="navigationTitle" destination="GEl-4c-ft3" id="8ym-1s-spv"/>
+                        <outlet property="imageView" destination="Y0S-Zy-U6p" id="qia-Qz-71u"/>
+                        <outlet property="navigationTitle" destination="GEl-4c-ft3" id="Gi9-km-fuc"/>
                         <outlet property="selectImage" destination="1PQ-qC-Zgj" id="ZzT-4L-9IA"/>
                         <outlet property="topScreenView" destination="edw-2f-2tb" id="Oyo-9r-0ai"/>
-                        <outlet property="topTitle" destination="puH-br-v5i" id="PXa-6k-blD"/>
+                        <outlet property="topTitle" destination="puH-br-v5i" id="ibS-A5-KIF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UDV-dQ-3BC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

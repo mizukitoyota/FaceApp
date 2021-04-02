@@ -12,14 +12,7 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet var topScreenView: UIView!
     @IBOutlet weak var topTitle: UINavigationBar!
     @IBOutlet weak var buttonView: UIView!
-    @IBOutlet weak var imageView: UIImageView! {
-        willSet {
-            // デフォルトの画像を表示する
-            imageView.image = UIImage(named: "pop_gazouha_image_desu.png")
-            imageView.contentMode = .scaleAspectFit
-            imageView.backgroundColor = .green
-        }
-    }
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var selectImage: UIButton!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var apiButton: UIButton!
@@ -27,6 +20,7 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setDefaultImage()
         self.selectImageSetButton()
         self.cameraButtonSetButton()
         self.goFaceApiSetButton()
@@ -45,6 +39,12 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
         // 画像をImageViewに表示したらアルバムを閉じる
     }
     
+    func setDefaultImage() {
+        // デフォルトの画像を表示する
+        imageView.image = UIImage(named: "pop_gazouha_image_desu")
+        imageView.contentMode = .scaleAspectFit
+        imageView.backgroundColor = .green
+    }
     func setButtonView() {
         // 背景色ー薄緑色
         buttonView.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 0.5, alpha:1.0)
@@ -79,10 +79,7 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     
     func navigationBarSetTitle() {
         self.navigationTitle.title = "顔認証"
-        self.topTitle.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.yellow,
-            NSAttributedString.Key.font: (name: "Futura-Bold", size: 20) as Any
-        ]
+        // タイトルのフォントサイズ指定はXcode12対応必要
     }
     @IBAction func launchCamera(sender: UIButton) {
         // カメラ起動
@@ -100,7 +97,6 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
         let picker = UIImagePickerController() //アルバムを開く処理を呼び出す
         picker.sourceType = .photoLibrary
         picker.delegate = self
-        present(picker, animated: true)
         self.present(picker, animated: true)
     }
     
