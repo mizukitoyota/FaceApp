@@ -33,18 +33,20 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
         self.navigationBarSetTitle()
         self.setButtonView()
     }
-        
+    
     // 画像が選択された時に呼ばれる
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])  {
         
         if let selectedImage = info[.originalImage] as? UIImage {
-            self.imageView.image = selectedImage //imageViewにカメラロールから選んだ画像を表示する
+            self.imageView.image = selectedImage
+            // imageViewにカメラロールから選んだ画像を表示する
         }
-        self.dismiss(animated: true)  //画像をImageViewに表示したらアルバムを閉じる
+        self.dismiss(animated: true)
+        // 画像をImageViewに表示したらアルバムを閉じる
     }
     
     func setButtonView() {
-        //　背景色ー薄緑色
+        // 背景色ー薄緑色
         buttonView.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 0.5, alpha:1.0)
     }
     
