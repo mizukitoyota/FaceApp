@@ -16,7 +16,7 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
         didSet {
             // デフォルトの画像を表示する
             ImageView.image = UIImage(named: "pop_gazouha_image_desu.png")
-            ImageView.contentMode = UIView.ContentMode.scaleAspectFit
+            ImageView.contentMode = .scaleAspectFit
             ImageView.backgroundColor = UIColor.green
         }
     }
