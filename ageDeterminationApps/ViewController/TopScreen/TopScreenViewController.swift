@@ -10,13 +10,13 @@ import UIKit
 
 class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet var topScreenView: UIView!
-    @IBOutlet weak var topTitle: UINavigationBar!
-    @IBOutlet weak var buttonView: UIView!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var selectImage: UIButton!
+    @IBOutlet weak var topTitleNavigationBar: UINavigationBar!
+    @IBOutlet weak var topButtonView: UIView!
+    @IBOutlet weak var topImageView: UIImageView!
+    @IBOutlet weak var imageSelectButton: UIButton!
     @IBOutlet weak var cameraButton: UIButton!
-    @IBOutlet weak var apiButton: UIButton!
-    @IBOutlet weak var navigationTitle: UINavigationItem!
+    @IBOutlet weak var faceApiButton: UIButton!
+    @IBOutlet weak var topNavigationTitleItem: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])  {
         
         if let selectedImage = info[.originalImage] as? UIImage {
-            self.imageView.image = selectedImage
+            self.topImageView.image = selectedImage
             // imageViewにカメラロールから選んだ画像を表示する
         }
         self.dismiss(animated: true)
@@ -41,22 +41,22 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     
     func setDefaultImage() {
         // デフォルトの画像を表示する
-        imageView.image = UIImage(named: "pop_gazouha_image_desu")
-        imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = .green
+        topImageView.image = UIImage(named: "pop_gazouha_image_desu")
+        topImageView.contentMode = .scaleAspectFit
+        topImageView.backgroundColor = .green
     }
     func setButtonView() {
         // 背景色ー薄緑色
-        buttonView.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 0.5, alpha:1.0)
+        topButtonView.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 0.5, alpha:1.0)
     }
     
     func selectImageSetButton() {
         // タイトル
-        selectImage.setTitle("イメージの選択", for: .normal)
+        imageSelectButton.setTitle("イメージの選択", for: .normal)
         // タイトルの色
-        selectImage.setTitleColor(.red, for: .normal)
-        selectImage.layer.cornerRadius = 10.0
-        selectImage.titleLabel?.adjustsFontSizeToFitWidth = true
+        imageSelectButton.setTitleColor(.red, for: .normal)
+        imageSelectButton.layer.cornerRadius = 10.0
+        imageSelectButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
     func cameraButtonSetButton() {
@@ -70,15 +70,15 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     
     func goFaceApiSetButton() {
         // タイトル
-        apiButton.setTitle("GO", for: .normal)
+        faceApiButton.setTitle("GO", for: .normal)
         // タイトルの色
-        apiButton.setTitleColor(.red, for: .normal)
-        apiButton.layer.cornerRadius = 20.0
-        apiButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        faceApiButton.setTitleColor(.red, for: .normal)
+        faceApiButton.layer.cornerRadius = 20.0
+        faceApiButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
     func navigationBarSetTitle() {
-        self.navigationTitle.title = "顔認証"
+        self.topNavigationTitleItem.title = "顔認証"
         // タイトルのフォントサイズ指定はXcode12対応必要
     }
     @IBAction func launchCamera(sender: UIButton) {

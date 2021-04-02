@@ -103,14 +103,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="apiButton" destination="2sd-JC-LSo" id="fNi-OC-JkQ"/>
-                        <outlet property="buttonView" destination="5Xk-Ij-J3Q" id="hNg-nn-mw4"/>
                         <outlet property="cameraButton" destination="nAm-Fu-NYQ" id="eln-WH-pVP"/>
-                        <outlet property="imageView" destination="Y0S-Zy-U6p" id="qia-Qz-71u"/>
-                        <outlet property="navigationTitle" destination="GEl-4c-ft3" id="Gi9-km-fuc"/>
-                        <outlet property="selectImage" destination="1PQ-qC-Zgj" id="ZzT-4L-9IA"/>
+                        <outlet property="faceApiButton" destination="2sd-JC-LSo" id="Y31-LW-Ui9"/>
+                        <outlet property="imageSelectButton" destination="1PQ-qC-Zgj" id="9Gk-Qz-T6R"/>
+                        <outlet property="topButtonView" destination="5Xk-Ij-J3Q" id="s9L-m2-qnK"/>
+                        <outlet property="topImageView" destination="Y0S-Zy-U6p" id="PCV-Yn-rYX"/>
+                        <outlet property="topNavigationTitleItem" destination="GEl-4c-ft3" id="OrU-sd-1Hv"/>
                         <outlet property="topScreenView" destination="edw-2f-2tb" id="Oyo-9r-0ai"/>
-                        <outlet property="topTitle" destination="puH-br-v5i" id="ibS-A5-KIF"/>
+                        <outlet property="topTitleNavigationBar" destination="puH-br-v5i" id="0Km-Iw-WuH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UDV-dQ-3BC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
