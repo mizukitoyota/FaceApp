@@ -91,7 +91,7 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
             let picker = UIImagePickerController()
             picker.sourceType = camera
             picker.delegate = self
-            self.present(picker, animated: true, completion: nil)
+            self.present(picker, animated: true)
         }
     }
     
@@ -101,7 +101,7 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
         picker.sourceType = .photoLibrary
         picker.delegate = self
         present(picker, animated: true)
-        self.present(picker, animated: true, completion: nil)
+        self.present(picker, animated: true)
     }
     
     @IBAction func submitButton(_ sender: Any) {
@@ -110,6 +110,6 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     
     // 画像選択がキャンセルされた時に呼ばれる
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true)
     }
 }
