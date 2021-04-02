@@ -9,15 +9,15 @@
 import UIKit
 
 class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    @IBOutlet var TopScreenView: UIView!
-    @IBOutlet weak var TopTitle: UINavigationBar!
-    @IBOutlet weak var ButtonView: UIView!
-    @IBOutlet weak var ImageView: UIImageView! {
+    @IBOutlet var topScreenView: UIView!
+    @IBOutlet weak var topTitle: UINavigationBar!
+    @IBOutlet weak var buttonView: UIView!
+    @IBOutlet weak var imageView: UIImageView! {
         didSet {
             // デフォルトの画像を表示する
-            ImageView.image = UIImage(named: "pop_gazouha_image_desu.png")
-            ImageView.contentMode = .scaleAspectFit
-            ImageView.backgroundColor = .green
+            imageView.image = UIImage(named: "pop_gazouha_image_desu.png")
+            imageView.contentMode = .scaleAspectFit
+            imageView.backgroundColor = .green
         }
     }
     @IBOutlet weak var selectImage: UIButton!
@@ -38,14 +38,14 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])  {
         
         if let selectedImage = info[.originalImage] as? UIImage {
-            self.ImageView.image = selectedImage //imageViewにカメラロールから選んだ画像を表示する
+            self.imageView.image = selectedImage //imageViewにカメラロールから選んだ画像を表示する
         }
         self.dismiss(animated: true)  //画像をImageViewに表示したらアルバムを閉じる
     }
     
     func setButtonView() {
         //　背景色ー薄緑色
-        ButtonView.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 0.5, alpha:1.0)
+        buttonView.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 0.5, alpha:1.0)
     }
     
     func selectImageSetButton() {
@@ -77,7 +77,7 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     
     func navigationBarSetTitle() {
         self.navigationTitle.title = "顔認証"
-        self.TopTitle.titleTextAttributes
+        self.topTitle.titleTextAttributes
             = [NSAttributedString.Key.font: UIFont(name: "Futura-Bold", size: 20)!]
     }
     @IBAction func launchCamera(sender: UIButton) {

@@ -103,14 +103,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ButtonView" destination="5Xk-Ij-J3Q" id="Q0y-gb-Jce"/>
-                        <outlet property="ImageView" destination="Y0S-Zy-U6p" id="xfb-e6-Jup"/>
-                        <outlet property="TopScreenView" destination="edw-2f-2tb" id="igo-3c-nbV"/>
-                        <outlet property="TopTitle" destination="puH-br-v5i" id="6Va-ML-UWt"/>
                         <outlet property="apiButton" destination="2sd-JC-LSo" id="fNi-OC-JkQ"/>
+                        <outlet property="buttonView" destination="5Xk-Ij-J3Q" id="hNg-nn-mw4"/>
                         <outlet property="cameraButton" destination="nAm-Fu-NYQ" id="eln-WH-pVP"/>
+                        <outlet property="imageView" destination="Y0S-Zy-U6p" id="OKe-wq-ffn"/>
                         <outlet property="navigationTitle" destination="GEl-4c-ft3" id="8ym-1s-spv"/>
                         <outlet property="selectImage" destination="1PQ-qC-Zgj" id="ZzT-4L-9IA"/>
+                        <outlet property="topScreenView" destination="edw-2f-2tb" id="Oyo-9r-0ai"/>
+                        <outlet property="topTitle" destination="puH-br-v5i" id="PXa-6k-blD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UDV-dQ-3BC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
