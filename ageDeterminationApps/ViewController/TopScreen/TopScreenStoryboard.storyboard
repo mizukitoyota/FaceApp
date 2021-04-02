@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LYy-xp-yqs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LYy-xp-yqs">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,7 +26,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Xk-Ij-J3Q">
                                 <rect key="frame" x="0.0" y="483" width="414" height="413"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2sd-JC-LSo">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2sd-JC-LSo">
                                         <rect key="frame" x="157" y="250" width="100" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="8Zt-uo-OYM"/>
@@ -35,7 +37,7 @@
                                             <action selector="submitButton:" destination="LYy-xp-yqs" eventType="touchUpInside" id="Tfv-fO-Io4"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAm-Fu-NYQ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAm-Fu-NYQ">
                                         <rect key="frame" x="252" y="100" width="100" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="GHH-nc-OKF"/>
@@ -46,7 +48,7 @@
                                             <action selector="launchCameraWithSender:" destination="LYy-xp-yqs" eventType="touchUpInside" id="GqU-dC-0Vg"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1PQ-qC-Zgj">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1PQ-qC-Zgj">
                                         <rect key="frame" x="63" y="100" width="100" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="cgJ-iY-35H"/>
@@ -58,7 +60,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="nAm-Fu-NYQ" secondAttribute="trailing" constant="62" id="1GD-5R-GXU"/>
                                     <constraint firstItem="nAm-Fu-NYQ" firstAttribute="baseline" secondItem="1PQ-qC-Zgj" secondAttribute="firstBaseline" id="6oe-lL-EcY"/>
@@ -78,7 +80,8 @@
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Fzx-jh-O5m"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="5Xk-Ij-J3Q" firstAttribute="trailing" secondItem="puH-br-v5i" secondAttribute="trailing" id="0bA-4m-8Y4"/>
                             <constraint firstItem="puH-br-v5i" firstAttribute="top" secondItem="edw-2f-2tb" secondAttribute="top" constant="44" id="8bC-n4-V7z"/>
@@ -98,15 +101,14 @@
                             <constraint firstItem="puH-br-v5i" firstAttribute="trailing" secondItem="Fzx-jh-O5m" secondAttribute="trailing" id="sJa-uz-TUi"/>
                             <constraint firstItem="5Xk-Ij-J3Q" firstAttribute="trailing" secondItem="Fzx-jh-O5m" secondAttribute="trailing" id="vWX-OZ-Gvc"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Fzx-jh-O5m"/>
                     </view>
                     <connections>
                         <outlet property="ButtonView" destination="5Xk-Ij-J3Q" id="Q0y-gb-Jce"/>
                         <outlet property="ImageView" destination="Y0S-Zy-U6p" id="xfb-e6-Jup"/>
                         <outlet property="TopScreenView" destination="edw-2f-2tb" id="igo-3c-nbV"/>
                         <outlet property="TopTitle" destination="puH-br-v5i" id="6Va-ML-UWt"/>
+                        <outlet property="apiButton" destination="2sd-JC-LSo" id="fNi-OC-JkQ"/>
                         <outlet property="cameraButton" destination="nAm-Fu-NYQ" id="eln-WH-pVP"/>
-                        <outlet property="goFaceApi" destination="2sd-JC-LSo" id="Jos-1l-2B7"/>
                         <outlet property="navigationTitle" destination="GEl-4c-ft3" id="8ym-1s-spv"/>
                         <outlet property="selectImage" destination="1PQ-qC-Zgj" id="ZzT-4L-9IA"/>
                     </connections>
@@ -116,4 +118,9 @@
             <point key="canvasLocation" x="249.27536231884059" y="231.02678571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

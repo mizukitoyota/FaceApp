@@ -22,7 +22,7 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     }
     @IBOutlet weak var selectImage: UIButton!
     @IBOutlet weak var cameraButton: UIButton!
-    @IBOutlet weak var goFaceApi: UIButton!
+    @IBOutlet weak var apiButton: UIButton!
     @IBOutlet weak var navigationTitle: UINavigationItem!
     
     override func viewDidLoad() {
@@ -72,11 +72,11 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     
     func goFaceApiSetButton() {
         // タイトル
-        goFaceApi.setTitle("GO", for: .normal)
+        apiButton.setTitle("GO", for: .normal)
         // タイトルの色
-        goFaceApi.setTitleColor(.red, for: .normal)
-        goFaceApi.layer.cornerRadius = 20.0
-        goFaceApi.titleLabel?.adjustsFontSizeToFitWidth = true
+        apiButton.setTitleColor(.red, for: .normal)
+        apiButton.layer.cornerRadius = 20.0
+        apiButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
     func navigationBarSetTitle() {
