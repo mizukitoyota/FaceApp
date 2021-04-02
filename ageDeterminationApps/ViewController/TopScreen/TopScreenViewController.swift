@@ -79,8 +79,10 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     
     func navigationBarSetTitle() {
         self.navigationTitle.title = "顔認証"
-        self.topTitle.titleTextAttributes
-            = [NSAttributedString.Key.font: UIFont(name: "Futura-Bold", size: 20)!]
+        self.topTitle.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.yellow,
+            NSAttributedString.Key.font: (name: "Futura-Bold", size: 20) as Any
+        ]
     }
     @IBAction func launchCamera(sender: UIButton) {
         // カメラ起動
