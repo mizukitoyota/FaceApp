@@ -6,9 +6,8 @@
 //  Copyright © 2021 training. All rights reserved.
 //
 
-import UIKit
 
-class TopScreenModel: UIView {
+class TopScreenModel {
     /// データ表現
     /// データ変更をViewModelへ通知
 }
