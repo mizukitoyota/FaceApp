@@ -51,36 +51,37 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     func selectImageSetButton() {
-        // タイトル
+        // 写真選択ボタン
         imageSelectButton.setTitle("イメージの選択", for: .normal)
-        // タイトルの色
+        // ボタン色
         imageSelectButton.setTitleColor(.red, for: .normal)
         imageSelectButton.layer.cornerRadius = 10.0
         imageSelectButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
     func cameraButtonSetButton() {
-        // タイトル
+        // カメラボタン
         cameraButton.setTitle("カメラ起動", for: .normal)
-        // タイトルの色
+        // ボタン色
         cameraButton.setTitleColor(.red, for: .normal)
         cameraButton.layer.cornerRadius = 10.0
         cameraButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
     func goFaceApiSetButton() {
-        // タイトル
+        // APIボタン
         faceApiButton.setTitle("GO", for: .normal)
-        // タイトルの色
+        // ボタン色
         faceApiButton.setTitleColor(.red, for: .normal)
         faceApiButton.layer.cornerRadius = 20.0
         faceApiButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
     func navigationBarSetTitle() {
+        // タイトル
         self.topNavigationTitleItem.title = "顔認証"
-        // タイトルのフォントサイズ指定はXcode12対応必要
     }
+    
     @IBAction func launchCamera(sender: UIButton) {
         // カメラ起動
         let camera = UIImagePickerController.SourceType.camera
