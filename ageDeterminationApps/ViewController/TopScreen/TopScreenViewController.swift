@@ -23,7 +23,7 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
         self.setDefaultImage()
         self.setSelectImageButton()
         self.setCameraButton()
-        self.goFaceApiSetButton()
+        self.goFaceApiButton()
         self.setNavigationBarTitle()
         self.setButtonView()
     }
@@ -68,7 +68,7 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
         cameraButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
-    func goFaceApiSetButton() {
+    func goFaceApiButton() {
         // APIボタン
         faceApiButton.setTitle("GO", for: .normal)
         // ボタン色
