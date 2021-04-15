@@ -41,40 +41,40 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     
     func setDefaultImage() {
         // デフォルトの画像を表示する
-        topImageView.image = UIImage(named: "pop_gazouha_image_desu")
-        topImageView.contentMode = .scaleAspectFit
-        topImageView.backgroundColor = .green
+        self.topImageView.image = UIImage(named: "pop_gazouha_image_desu")
+        self.topImageView.contentMode = .scaleAspectFit
+        self.topImageView.backgroundColor = .green
     }
     func setButtonView() {
         // 背景色ー薄緑色
-        topButtonView.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 0.5, alpha:1.0)
+        self.topButtonView.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 0.5, alpha:1.0)
     }
     
     func setSelectImageButton() {
         // 写真選択ボタン
-        imageSelectButton.setTitle("イメージの選択", for: .normal)
+        self.imageSelectButton.setTitle("イメージの選択", for: .normal)
         // ボタン色
-        imageSelectButton.setTitleColor(.red, for: .normal)
-        imageSelectButton.layer.cornerRadius = 10.0
-        imageSelectButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        self.imageSelectButton.setTitleColor(.red, for: .normal)
+        self.imageSelectButton.layer.cornerRadius = 10.0
+        self.imageSelectButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
     func setCameraButton() {
         // カメラボタン
-        cameraButton.setTitle("カメラ起動", for: .normal)
+        self.cameraButton.setTitle("カメラ起動", for: .normal)
         // ボタン色
-        cameraButton.setTitleColor(.red, for: .normal)
-        cameraButton.layer.cornerRadius = 10.0
-        cameraButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        self.cameraButton.setTitleColor(.red, for: .normal)
+        self.cameraButton.layer.cornerRadius = 10.0
+        self.cameraButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
     func goFaceApiButton() {
         // APIボタン
-        faceApiButton.setTitle("GO", for: .normal)
+        self.faceApiButton.setTitle("GO", for: .normal)
         // ボタン色
-        faceApiButton.setTitleColor(.red, for: .normal)
-        faceApiButton.layer.cornerRadius = 20.0
-        faceApiButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        self.faceApiButton.setTitleColor(.red, for: .normal)
+        self.faceApiButton.layer.cornerRadius = 20.0
+        self.faceApiButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
     func setNavigationBarTitle() {

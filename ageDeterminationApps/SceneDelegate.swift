@@ -17,12 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         // UIWindow のインスタンスを作成
-        window = UIWindow(windowScene: windowScene)
+        self.window = UIWindow(windowScene: windowScene)
         // rootViewController にルートにしたい ViewController を指定
         // UIStoryboard の instantiateInitialViewController() を使用して
         // Storyboard から ViewController を生成
-        window?.rootViewController = UIStoryboard(name: "TopScreenStoryboard", bundle: nil).instantiateInitialViewController()
-        window?.makeKeyAndVisible()
+        self.window?.rootViewController = UIStoryboard(name: "TopScreenStoryboard", bundle: nil).instantiateInitialViewController()
+        self.window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
