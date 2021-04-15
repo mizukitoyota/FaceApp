@@ -32,11 +32,11 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])  {
         
         if let selectedImage = info[.originalImage] as? UIImage {
-            self.topImageView.image = selectedImage
             // imageViewにカメラロールから選んだ画像を表示する
+            self.topImageView.image = selectedImage
         }
-        self.dismiss(animated: true)
         // 画像をImageViewに表示したらアルバムを閉じる
+        self.dismiss(animated: true)
     }
     
     func setDefaultImage() {
