@@ -66,10 +66,9 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBAction func launchCamera(sender: UIButton) {
         // カメラ起動
-        let camera = UIImagePickerController.SourceType.camera
-        if UIImagePickerController.isSourceTypeAvailable(camera) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
             let picker = UIImagePickerController()
-            picker.sourceType = camera
+            picker.sourceType = UIImagePickerController.SourceType.camera
             picker.delegate = self
             self.present(picker, animated: true)
         }
