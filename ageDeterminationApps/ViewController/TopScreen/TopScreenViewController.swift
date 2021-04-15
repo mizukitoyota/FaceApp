@@ -21,9 +21,9 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setDefaultImage()
-        self.setSelectImageButton()
-        self.setCameraButton()
-        self.goFaceApiButton()
+        self.setButton(buttonName: imageSelectButton,title: "イメージ",radius: 10)
+        self.setButton(buttonName: cameraButton,title: "カメラ", radius: 10)
+        self.setButton(buttonName: faceApiButton,title: "GO", radius: 20)
         self.setNavigationBarTitle()
         self.setButtonView()
     }
@@ -50,31 +50,13 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
         self.topButtonView.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 0.5, alpha:1.0)
     }
     
-    func setSelectImageButton() {
-        // 写真選択ボタン
-        self.imageSelectButton.setTitle("イメージの選択", for: .normal)
-        // ボタン色
-        self.imageSelectButton.setTitleColor(.red, for: .normal)
-        self.imageSelectButton.layer.cornerRadius = 10.0
-        self.imageSelectButton.titleLabel?.adjustsFontSizeToFitWidth = true
-    }
-    
-    func setCameraButton() {
-        // カメラボタン
-        self.cameraButton.setTitle("カメラ起動", for: .normal)
-        // ボタン色
-        self.cameraButton.setTitleColor(.red, for: .normal)
-        self.cameraButton.layer.cornerRadius = 10.0
-        self.cameraButton.titleLabel?.adjustsFontSizeToFitWidth = true
-    }
-    
-    func goFaceApiButton() {
-        // APIボタン
-        self.faceApiButton.setTitle("GO", for: .normal)
-        // ボタン色
-        self.faceApiButton.setTitleColor(.red, for: .normal)
-        self.faceApiButton.layer.cornerRadius = 20.0
-        self.faceApiButton.titleLabel?.adjustsFontSizeToFitWidth = true
+    func setButton(buttonName: UIButton, title: String, radius: CGFloat) {
+        // ボタンタイトル設定
+        buttonName.setTitle(title, for: .normal)
+        // ボタン色設定
+        buttonName.setTitleColor(.red, for: .normal)
+        buttonName.layer.cornerRadius = radius
+        buttonName.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
     func setNavigationBarTitle() {
