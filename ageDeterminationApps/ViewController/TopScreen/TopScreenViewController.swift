@@ -21,8 +21,8 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setDefaultImage()
-        self.setButton(buttonName: imageSelectButton,title: "イメージ",radius: 10)
-        self.setButton(buttonName: cameraButton,title: "カメラ", radius: 10)
+        self.setButton(buttonName: imageSelectButton,title: "イメージの選択",radius: 10)
+        self.setButton(buttonName: cameraButton,title: "カメラ起動", radius: 10)
         self.setButton(buttonName: faceApiButton,title: "GO", radius: 20)
         self.setNavigationBarTitle()
         self.setButtonView()
