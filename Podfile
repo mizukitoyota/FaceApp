@@ -7,4 +7,7 @@ target 'ageDeterminationApps' do
 
   # Pods for ageDeterminationApps
 
+pod 'SwiftyJSON'
+pod 'Alamofire'
+
 end
