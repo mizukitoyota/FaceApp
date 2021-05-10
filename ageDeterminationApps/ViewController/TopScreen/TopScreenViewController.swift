@@ -84,6 +84,12 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBAction func submitButton(_ sender: Any) {
         // 画面遷移、API
+        // 画面遷移
+        let storyboard: UIStoryboard = UIStoryboard(name: "ResultScreen", bundle: nil)
+        // StoryboardIDを指定してViewControllerを取得する
+        let fourthViewController = storyboard.instantiateViewController(withIdentifier: "ResultScreen") as! ResultScreenViewController
+        fourthViewController.modalPresentationStyle = .fullScreen
+        self.present(fourthViewController, animated: true, completion: nil)
     }
     
     // 画像選択がキャンセルされた時に呼ばれる

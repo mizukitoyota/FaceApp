@@ -6,4 +6,12 @@
 //  Copyright © 2021 training. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class ResultScreenViewController: UIViewController{
+    @IBOutlet var ResultScreen: UIView!
+    var value: String = ""
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}

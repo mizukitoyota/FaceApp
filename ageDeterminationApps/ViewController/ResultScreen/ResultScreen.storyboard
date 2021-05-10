@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Result Screen View Controller-->
         <scene sceneID="UVB-Ng-RUo">
             <objects>
-                <viewController id="sRg-HQ-HzF" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sRg-HQ-HzF" customClass="ResultScreenViewController" customModule="ageDeterminationApps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KJU-tu-FzZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -89,10 +89,13 @@
                             <constraint firstItem="jgg-rn-c6C" firstAttribute="leading" secondItem="PIt-rM-g9D" secondAttribute="leading" id="xne-rv-KkX"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ResultScreen" destination="KJU-tu-FzZ" id="GdH-cx-lzH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yNz-su-NP3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="134.78260869565219" y="136.60714285714286"/>
+            <point key="canvasLocation" x="-303" y="64"/>
         </scene>
     </scenes>
     <resources>
