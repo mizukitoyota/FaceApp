@@ -10,8 +10,12 @@ import UIKit
 
 class ResultScreenViewController: UIViewController{
     @IBOutlet var ResultScreen: UIView!
+    
     var value: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    func close(){
+        self.dismiss(animated: true, completion: nil)
     }
 }
