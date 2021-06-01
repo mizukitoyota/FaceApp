@@ -12,6 +12,16 @@ import Alamofire
 //（ユーザー情報の保存）JSONファイル解析
 import SwiftyJSON
 
+struct Test {
+    public var image_id: String?
+    public var request_id: String?
+    public var time_used: Int?
+    public var gender: String?
+    public var age: Int?
+    public var beauty_woman: Int?
+    public var beauty_man: Int?
+}
+
 class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate,URLSessionDelegate, URLSessionDataDelegate, UINavigationControllerDelegate {
     @IBOutlet var topScreenView: UIView!
     @IBOutlet weak var topTitleNavigationBar: UINavigationBar!
@@ -21,6 +31,11 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var faceApiButton: UIButton!
     @IBOutlet weak var topNavigationTitleItem: UINavigationItem!
+    
+    var coupons: [[String: Any]] = [] { //パースした[String: Any]型のクーポンデータを格納するメンバ変数
+        didSet{
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,7 +103,9 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBAction func submitButton(_ sender: Any) {
         // 画面遷移、API
-        // self.getImages()
+        self.getImages(onSuccess: {_ in},
+                       onError: {_ in})
+        self.viewmodel
         // 画面遷移
         let storyboard: UIStoryboard = UIStoryboard(name: "ResultScreen", bundle: nil)
         // StoryboardIDを指定してViewControllerを取得する
@@ -105,44 +122,81 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     
     // 検索キーワードの値を元に画像を引っ張ってくる
     // pixabay.com
-    func getImages(){
+    func getImages(onSuccess: @escaping(Result<JSON, Error>) -> Void,
+                   onError: @escaping(Error) -> Void) {
         
-//        let photo = topImageView.image
-//        let imageData = photo!.pngData()!as NSData
-//
-//        let base64String = imageData.base64EncodedString(options: .lineLength64Characters)
-//        let imageString = base64String
-//
-//        // APIKEY: 2FeR2N3--DLdJOV8RmYi7snd4oplNrpy
-//        // SecretKey: 0vp2s3Ihe22KEYa_TiWHbLqbbr857EN_
-//        // API URL: https://api-us.faceplusplus.com/facepp/v3/face/analyze
-//        let url = "https://api-us.faceplusplus.com/facepp/v3/face/analyze"
-//        // \(imageString)
-//        // responseJSONーAPIサーバーとの通信処理
-//        // Alamofireを使ってhttpリクエストを投げます。getでリクエストを投げる（URL形式）、responseが返ってくる
-//        AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON { (response) in
-//
-//            // キャスト
-//            let json:JSON = JSON(response.data as Any)
-        // 通信用のConfigを生成.
-        // let configer = ["api_key":API_KEY,"api_secret":API_SECRET,"image_base64":img_file,"return_landmark":1,"return_attributes":"gender,age,smiling,headpose,facequality,blur,eyestatus,emotion,ethnicity,beauty,mouthstatus,eyegaze,skinstatus"]
-        let config:URLSessionConfiguration = URLSessionConfiguration.background(withIdentifier: "login")
+        let photo = topImageView.image
+        let imageData = photo!.jpegData(compressionQuality: 0.2)
+        
+        guard let base64String = imageData?.base64EncodedString() else {
+            return
+        }
+        // APIKEY: 2FeR2N3--DLdJOV8RmYi7snd4oplNrpy
+        // SecretKey: 0vp2s3Ihe22KEYa_TiWHbLqbbr857EN_
+        // API URL: https://api-us.faceplusplus.com/facepp/v3/detect
+        // キャスト
+        //            let json:JSON = JSON(response.data as Any)
+        let config:URLSessionConfiguration = URLSessionConfiguration.default
         // Sessionを生成.
         let session: URLSession = URLSession(configuration: config, delegate: self, delegateQueue: nil)
         // 通信先のURLを生成.
-        let myUrl:URL = URL(string: "https://api-us.faceplusplus.com/facepp/v3/face/analyze")!
+        //        let myUrl:URL = URL(string: "https://api-us.faceplusplus.com/facepp/v3/detect")!
         // POST用のリクエストを生成.
-        var myRequest:URLRequest = URLRequest(url: myUrl)
-        myRequest.httpMethod = "POST"
+        guard let url = URL(string: "https://api-us.faceplusplus.com/facepp/v3/detect") else { return }
+        // リクエスト設定
+        var requestUrl = URLRequest(url: url)
+        requestUrl.httpMethod = "POST"
         // 送信するデータを生成、リクエストにセット.
-        let str: NSString = "api_key=\("2FeR2N3--DLdJOV8RmYi7snd4oplNrpy")&api_secret=\("0vp2s3Ihe22KEYa_TiWHbLqbbr857EN_")" as NSString
-        let myData: NSData = str.data(using: String.Encoding.utf8.rawValue)! as NSData
-        myRequest.httpBody = myData as Data
-         
-        // タスクの生成.
-        let task: URLSessionDataTask = session.dataTask(with: myRequest as URLRequest)
-        // タスクの実行.
-        task.resume()
+        //        let str: NSString = "api_key=\("2FeR2N3--DLdJOV8RmYi7snd4oplNrpy")api_secret=\("0vp2s3Ihe22KEYa_TiWHbLqbbr857EN_")image_url=\(imageString)return_attributes=gender,age" as NSString
+        //        let myData: NSData = str.data(using: String.Encoding.utf8.rawValue)! as NSData
+        //         通信用のConfigを生成.
+        let configer: [String: Any] = ["api_key" : "2FeR2N3--DLdJOV8RmYi7snd4oplNrpy",
+                                       "api_secret": "0vp2s3Ihe22KEYa_TiWHbLqbbr857EN_",
+                                       "image_base64": base64String,
+                                       "return_landmark": 1,
+                                       "return_attributes": "gender,age,beauty,emotion"]
+        // responseJSONーAPIサーバーとの通信処理
+        // Alamofireを使ってhttpリクエストを投げます。getでリクエストを投げる（URL形式）、responseが返ってくる
+        AF.request(url, method: .post, parameters: configer).responseJSON { (response) in
+            print(response)
+            switch response.result {
+            case .success(let value):
+                onSuccess(.success(JSON(value)))
+                let json = JSON(value)
+            case .failure(let error):
+                onError(error)
+                print(error)
+            }
         }
     }
-
+    
+    func viewmodel(onSuccess: (Result<JSON, Error>) -> Void,
+                   onError: (Error) -> Void) {
+        self.getImages(
+            onSuccess: { result in
+                switch result {
+                case .success(let value):
+                    let attributes = value["faces"][0]["attributes"]
+                    let gender = attributes["gender"]["value"].string
+                    let beauty_woman = attributes["beauty"]["female_score"].int
+                    let beauty_man = attributes["beauty"]["male_score"].int
+                    let age = attributes["age"]["value"].int
+                    
+                    let emotion_surprise = attributes["emotion"]["surprise"].int
+                    let emotion_neutral = attributes["emotion"]["neutral"].int
+                    let emotion_anger = attributes["emotion"]["anger"].int
+                    let emotion_disgust = attributes["emotion"]["disgust"].int
+                    let emotion_happiness = attributes["emotion"]["happiness"].int
+                    let emotion_sadness = attributes["emotion"]["sadness"].int
+                    let emotion_fear = attributes["emotion"]["fear"].int
+                    
+                    print(gender ?? "No_Gender",beauty_woman ?? "No_WomanLady",beauty_man ?? "No_NiceGay",age ?? "No_Age")
+                case .failure(let error):
+                    print(error)
+                }
+            },
+            onError: { _ in
+                
+            })
+    }
+}
