@@ -13,11 +13,10 @@ import Alamofire
 import SwiftyJSON
 
 class TopScreenViewModel{
-    var viewController = TopScreenViewController()
-    func viewmodels(onSuccess: (Result<JSON, Error>) -> Void,
-                    onError: (Error) -> Void) {
-        viewController.getImages(
-            onSuccess: { result in
+    var model = TopScreenModel()
+    func catchApiData(data: UIImage) {
+        self.model.getImage(
+            data: data, onSuccess: { result in
                 switch result {
                 case .success(let value):
                     let attributes = value["faces"][0]["attributes"]
@@ -35,13 +34,13 @@ class TopScreenViewModel{
                     let emotion_fear = attributes["emotion"]["fear"].int
                     
                     let datas = Test( gender: gender, age: age, beauty_woman: beauty_woman, beauty_man: beauty_man, emotion_surprise: emotion_surprise, emotion_neutral: emotion_neutral, emotion_anger: emotion_anger, emotion_disgust: emotion_disgust, emotion_happiness: emotion_happiness, emotion_sadness: emotion_sadness, emotion_fear: emotion_fear)
-            
+                    
                     print(gender ?? "No_Gender",beauty_woman ?? "No_WomanLady",beauty_man ?? "No_NiceGay",age ?? "No_Age")
                 case .failure(let error):
                     print(error)
                 }
             },
-            onError: { _ in
+            onError: {_ in
             })
     }
 }
