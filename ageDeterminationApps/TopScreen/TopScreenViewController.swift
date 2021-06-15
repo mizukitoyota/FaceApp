@@ -18,11 +18,6 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var faceApiButton: UIButton!
     @IBOutlet weak var topNavigationTitleItem: UINavigationItem!
     
-    /// パースした[String: Any]型のクーポンデータを格納するメンバ変数
-    var coupons: [[String: Any]] = [] {
-        didSet{
-        }
-    }
     let viewModel = TopScreenViewModel()
     
     override func viewDidLoad() {
