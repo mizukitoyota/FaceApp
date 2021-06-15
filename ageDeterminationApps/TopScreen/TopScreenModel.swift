@@ -65,7 +65,4 @@ class TopScreenModel {
             }
         }
     }
-    func viewmodels(onSuccess: (Result<JSON, Error>) -> Void,
-                    onError: (Error) -> Void) {
-    }
 }
