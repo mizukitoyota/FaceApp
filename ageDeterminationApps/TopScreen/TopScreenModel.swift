@@ -13,20 +13,20 @@ import Alamofire
 import SwiftyJSON
 
 struct Test {
-    var image_id: String?
-    var request_id: String?
-    var time_used: Int?
-    var gender: String?
-    var age: Int?
-    var beauty_woman: Int?
-    var beauty_man: Int?
-    var emotion_surprise: Int?
-    var emotion_neutral: Int?
-    var emotion_anger: Int?
-    var emotion_disgust: Int?
-    var emotion_happiness: Int?
-    var emotion_sadness: Int?
-    var emotion_fear: Int?
+    let image_id: String?
+    let request_id: String?
+    let time_used: Int?
+    let gender: String?
+    let age: Int?
+    let beauty_woman: Int?
+    let beauty_man: Int?
+    let emotion_surprise: Int?
+    let emotion_neutral: Int?
+    let emotion_anger: Int?
+    let emotion_disgust: Int?
+    let emotion_happiness: Int?
+    let emotion_sadness: Int?
+    let emotion_fear: Int?
 }
 
 class TopScreenModel {
