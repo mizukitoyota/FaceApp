@@ -7,10 +7,6 @@
 //
 
 import UIKit
-//HTTPリクエスト
-import Alamofire
-//（ユーザー情報の保存）JSONファイル解析
-import SwiftyJSON
 
 class TopScreenViewModel{
     var model = TopScreenModel()
