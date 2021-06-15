@@ -46,9 +46,6 @@ class TopScreenModel {
         // API URL: https://api-us.faceplusplus.com/facepp/v3/detect
         // POST用のリクエストを生成.
         guard let url = URL(string: "https://api-us.faceplusplus.com/facepp/v3/detect") else { return }
-        // リクエスト設定
-        var requestUrl = URLRequest(url: url)
-        requestUrl.httpMethod = "POST"
         //         通信用のConfigを生成.
         let configer: [String: Any] = ["api_key" : "2FeR2N3--DLdJOV8RmYi7snd4oplNrpy",
                                        "api_secret": "0vp2s3Ihe22KEYa_TiWHbLqbbr857EN_",
