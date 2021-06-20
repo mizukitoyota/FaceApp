@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LYy-xp-yqs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LYy-xp-yqs">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -56,7 +56,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
-                                                    <action selector="albumButton:" destination="LYy-xp-yqs" eventType="touchUpInside" id="7fM-7o-zjh"/>
+                                                    <action selector="albumButton:" destination="LYy-xp-yqs" eventType="touchUpInside" id="b7c-1U-cgI"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAm-Fu-NYQ">
@@ -68,7 +68,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
-                                                    <action selector="launchCameraWithSender:" destination="LYy-xp-yqs" eventType="touchUpInside" id="GqU-dC-0Vg"/>
+                                                    <action selector="launchCameraWithSender:" destination="LYy-xp-yqs" eventType="touchUpInside" id="IiN-4X-Mab"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -114,7 +114,7 @@
                         <outlet property="topImageView" destination="Y0S-Zy-U6p" id="PCV-Yn-rYX"/>
                         <outlet property="topNavigationTitleItem" destination="GEl-4c-ft3" id="OrU-sd-1Hv"/>
                         <outlet property="topScreenView" destination="edw-2f-2tb" id="Oyo-9r-0ai"/>
-                        <outlet property="topTitleNavigationBar" destination="puH-br-v5i" id="0Km-Iw-WuH"/>
+                        <outlet property="topTitleNavigationBar" destination="puH-br-v5i" id="2pd-4p-hn2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UDV-dQ-3BC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

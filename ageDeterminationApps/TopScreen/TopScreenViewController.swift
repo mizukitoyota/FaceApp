@@ -8,7 +8,7 @@
 
 import UIKit
     
-class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate,URLSessionDelegate, URLSessionDataDelegate, UINavigationControllerDelegate {
+class TopScreenViewController: UIViewController {
     @IBOutlet var topScreenView: UIView!
     @IBOutlet weak var topTitleNavigationBar: UINavigationBar!
     @IBOutlet weak var topButtonView: UIView!
@@ -19,6 +19,7 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var topNavigationTitleItem: UINavigationItem!
     
     let viewModel = TopScreenViewModel()
+    let picker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,18 +29,10 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
         self.setButton(buttonName: faceApiButton,title: "GO", radius: 20)
         self.setNavigationBarTitle()
         self.setButtonView()
+        picker.delegate = self
     }
     
-    // 画像が選択された時に呼ばれる
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])  {
-        
-        if let selectedImage = info[.originalImage] as? UIImage {
-            // imageViewにカメラロールから選んだ画像を表示する
-            self.topImageView.image = selectedImage
-        }
-        // 画像をImageViewに表示したらアルバムを閉じる
-        self.dismiss(animated: true)
-    }
+
     
     func setDefaultImage() {
         // デフォルトの画像を表示する
@@ -69,19 +62,15 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     @IBAction func launchCamera(sender: UIButton) {
         // カメラ起動
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            let picker = UIImagePickerController()
             picker.sourceType = .camera
-            picker.delegate = self
             self.present(picker, animated: true)
         }
     }
     
     @IBAction func albumButton(_ sender: UIButton) {
-        // アルバム起動
-        let picker = UIImagePickerController() //アルバムを開く処理を呼び出す
-        picker.sourceType = .photoLibrary
-        picker.delegate = self
-        self.present(picker, animated: true)
+        //アルバムを開く処理を呼び出す
+       picker.sourceType = .photoLibrary
+       self.present(picker, animated: true)
     }
     
     @IBAction func submitButton(_ sender: Any) {
@@ -90,12 +79,11 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
         }
         // 画面遷移、API
         self.viewModel.catchApiData(data: photo)
-        
+        print()
         // 画面遷移
         let storyboard: UIStoryboard = UIStoryboard(name: "ResultScreen", bundle: nil)
         // StoryboardIDを指定してViewControllerを取得する
         let fourthViewController = storyboard.instantiateViewController(withIdentifier: "ResultScreen") as! ResultScreenViewController
-        fourthViewController.modalPresentationStyle = .fullScreen
         self.present(fourthViewController, animated: true, completion: nil)
     }
     
@@ -103,4 +91,21 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true)
     }
+}
+// delegateについて調べる
+extension TopScreenViewController: UIImagePickerControllerDelegate{
+    // 画像が選択された時に呼ばれる
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])  {
+        
+        if let selectedImage = info[.originalImage] as? UIImage {
+            // imageViewにカメラロールから選んだ画像を表示する
+            self.topImageView.image = selectedImage
+        }
+        // 画像をImageViewに表示したらアルバムを閉じる
+        self.dismiss(animated: true)
+    }
+}
+
+extension TopScreenViewController: UINavigationControllerDelegate {
+    
 }
