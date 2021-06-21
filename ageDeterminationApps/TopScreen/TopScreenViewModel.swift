@@ -29,9 +29,13 @@ class TopScreenViewModel{
                     let emotion_sadness = attributes["emotion"]["sadness"].int
                     let emotion_fear = attributes["emotion"]["fear"].int
                     
-                    let datas = Test( gender: gender, age: age, beauty_woman: beauty_woman, beauty_man: beauty_man, emotion_surprise: emotion_surprise, emotion_neutral: emotion_neutral, emotion_anger: emotion_anger, emotion_disgust: emotion_disgust, emotion_happiness: emotion_happiness, emotion_sadness: emotion_sadness, emotion_fear: emotion_fear)
+                    let datas = Test( gender: gender, age: age, beauty_woman: beauty_woman,
+                                      beauty_man: beauty_man,emotion_surprise: emotion_surprise,
+                                      emotion_neutral: emotion_neutral,emotion_anger: emotion_anger,
+                                      emotion_disgust: emotion_disgust,emotion_happiness: emotion_happiness,
+                                      emotion_sadness: emotion_sadness, emotion_fear: emotion_fear)
                     
-                    print(gender ?? "No_Gender",beauty_woman ?? "No_WomanLady",beauty_man ?? "No_NiceGay",age ?? "No_Age")
+                    print(datas)
                 case .failure(let error):
                     print(error)
                 }
