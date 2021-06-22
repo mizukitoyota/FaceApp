@@ -79,7 +79,6 @@ class TopScreenViewController: UIViewController {
         }
         // 画面遷移、API
         self.viewModel.catchApiData(data: photo)
-        print()
         // 画面遷移
         let storyboard = UIStoryboard(name: "ResultScreen", bundle: nil)
         // StoryboardIDを指定してViewControllerを取得する
@@ -92,7 +91,6 @@ class TopScreenViewController: UIViewController {
         self.dismiss(animated: true)
     }
 }
-// delegateについて調べる
 extension TopScreenViewController: UIImagePickerControllerDelegate {
     // 画像が選択された時に呼ばれる
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])  {
