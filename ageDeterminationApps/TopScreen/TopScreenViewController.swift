@@ -81,7 +81,7 @@ class TopScreenViewController: UIViewController {
         self.viewModel.catchApiData(data: photo)
         print()
         // 画面遷移
-        let storyboard: UIStoryboard = UIStoryboard(name: "ResultScreen", bundle: nil)
+        let storyboard = UIStoryboard(name: "ResultScreen", bundle: nil)
         // StoryboardIDを指定してViewControllerを取得する
         let fourthViewController = storyboard.instantiateViewController(withIdentifier: "ResultScreen") as! ResultScreenViewController
         self.present(fourthViewController, animated: true, completion: nil)
