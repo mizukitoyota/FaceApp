@@ -90,9 +90,8 @@
 			children = (
 				8615E34B25F556A1002BDEB7 /* AppDelegate.swift */,
 				8615E34D25F556A1002BDEB7 /* SceneDelegate.swift */,
-				8662364525FE8224003CA217 /* ViewController */,
-				8662364725FE82B1003CA217 /* ViewModel */,
-				8662364625FE8258003CA217 /* Model */,
+				864A17DF26000007009B4BBE /* TopScreen */,
+				866B3FEC26432E0B00369AA5 /* ResultScreen */,
 				8615E35425F556A3002BDEB7 /* Assets.xcassets */,
 				8615E35625F556A3002BDEB7 /* LaunchScreen.storyboard */,
 				8615E35925F556A3002BDEB7 /* Info.plist */,
@@ -103,51 +102,12 @@
 		864A17DF26000007009B4BBE /* TopScreen */ = {
 			isa = PBXGroup;
 			children = (
-				8662364C25FE834C003CA217 /* TopScreenViewController.swift */,
 				8662365125FE853B003CA217 /* TopScreenStoryboard.storyboard */,
-			);
-			path = TopScreen;
-			sourceTree = "<group>";
-		};
-		864A17E12600009D009B4BBE /* TopScreen */ = {
-			isa = PBXGroup;
-			children = (
+				8662364C25FE834C003CA217 /* TopScreenViewController.swift */,
 				8662364825FE82F9003CA217 /* TopScreenViewModel.swift */,
-			);
-			path = TopScreen;
-			sourceTree = "<group>";
-		};
-		864A17E2260000C0009B4BBE /* TopScreen */ = {
-			isa = PBXGroup;
-			children = (
 				8662364A25FE830E003CA217 /* TopScreenModel.swift */,
 			);
 			path = TopScreen;
-			sourceTree = "<group>";
-		};
-		8662364525FE8224003CA217 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				866B3FEC26432E0B00369AA5 /* ResultScreen */,
-				864A17DF26000007009B4BBE /* TopScreen */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		8662364625FE8258003CA217 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				864A17E2260000C0009B4BBE /* TopScreen */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		8662364725FE82B1003CA217 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				864A17E12600009D009B4BBE /* TopScreen */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		866B3FEC26432E0B00369AA5 /* ResultScreen */ = {
