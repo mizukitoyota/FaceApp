@@ -93,7 +93,7 @@ class TopScreenViewController: UIViewController {
     }
 }
 // delegateについて調べる
-extension TopScreenViewController: UIImagePickerControllerDelegate{
+extension TopScreenViewController: UIImagePickerControllerDelegate {
     // 画像が選択された時に呼ばれる
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])  {
         
@@ -105,7 +105,6 @@ extension TopScreenViewController: UIImagePickerControllerDelegate{
         self.dismiss(animated: true)
     }
 }
-
-extension TopScreenViewController: UINavigationControllerDelegate {
-    
-}
+// 処理を委任したdelegateがUIImagePickerControllerDelegate &
+// UINavigationControllerDelegate表記になっており下記のdelegateも記述が必須になっている。
+extension TopScreenViewController: UINavigationControllerDelegate { }
