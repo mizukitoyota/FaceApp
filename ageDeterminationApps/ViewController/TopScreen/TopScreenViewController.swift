@@ -7,8 +7,22 @@
 //
 
 import UIKit
+//HTTPリクエスト
+import Alamofire
+//（ユーザー情報の保存）JSONファイル解析
+import SwiftyJSON
 
-class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+struct Test {
+    public var image_id: String?
+    public var request_id: String?
+    public var time_used: Int?
+    public var gender: String?
+    public var age: Int?
+    public var beauty_woman: Int?
+    public var beauty_man: Int?
+}
+
+class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate,URLSessionDelegate, URLSessionDataDelegate, UINavigationControllerDelegate {
     @IBOutlet var topScreenView: UIView!
     @IBOutlet weak var topTitleNavigationBar: UINavigationBar!
     @IBOutlet weak var topButtonView: UIView!
@@ -18,11 +32,16 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var faceApiButton: UIButton!
     @IBOutlet weak var topNavigationTitleItem: UINavigationItem!
     
+    var coupons: [[String: Any]] = [] { //パースした[String: Any]型のクーポンデータを格納するメンバ変数
+        didSet{
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setDefaultImage()
-        self.setButton(buttonName: imageSelectButton,title: "イメージ",radius: 10)
-        self.setButton(buttonName: cameraButton,title: "カメラ", radius: 10)
+        self.setButton(buttonName: imageSelectButton,title: "イメージの選択",radius: 10)
+        self.setButton(buttonName: cameraButton,title: "カメラ起動", radius: 10)
         self.setButton(buttonName: faceApiButton,title: "GO", radius: 20)
         self.setNavigationBarTitle()
         self.setButtonView()
@@ -84,10 +103,100 @@ class TopScreenViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBAction func submitButton(_ sender: Any) {
         // 画面遷移、API
+        self.getImages(onSuccess: {_ in},
+                       onError: {_ in})
+        self.viewmodel
+        // 画面遷移
+        let storyboard: UIStoryboard = UIStoryboard(name: "ResultScreen", bundle: nil)
+        // StoryboardIDを指定してViewControllerを取得する
+        let fourthViewController = storyboard.instantiateViewController(withIdentifier: "ResultScreen") as! ResultScreenViewController
+        fourthViewController.modalPresentationStyle = .fullScreen
+        self.present(fourthViewController, animated: true, completion: nil)
     }
     
     // 画像選択がキャンセルされた時に呼ばれる
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true)
+    }
+    
+    
+    // 検索キーワードの値を元に画像を引っ張ってくる
+    // pixabay.com
+    func getImages(onSuccess: @escaping(Result<JSON, Error>) -> Void,
+                   onError: @escaping(Error) -> Void) {
+        
+        let photo = topImageView.image
+        let imageData = photo!.jpegData(compressionQuality: 0.2)
+        
+        guard let base64String = imageData?.base64EncodedString() else {
+            return
+        }
+        // APIKEY: 2FeR2N3--DLdJOV8RmYi7snd4oplNrpy
+        // SecretKey: 0vp2s3Ihe22KEYa_TiWHbLqbbr857EN_
+        // API URL: https://api-us.faceplusplus.com/facepp/v3/detect
+        // キャスト
+        //            let json:JSON = JSON(response.data as Any)
+        let config:URLSessionConfiguration = URLSessionConfiguration.default
+        // Sessionを生成.
+        let session: URLSession = URLSession(configuration: config, delegate: self, delegateQueue: nil)
+        // 通信先のURLを生成.
+        //        let myUrl:URL = URL(string: "https://api-us.faceplusplus.com/facepp/v3/detect")!
+        // POST用のリクエストを生成.
+        guard let url = URL(string: "https://api-us.faceplusplus.com/facepp/v3/detect") else { return }
+        // リクエスト設定
+        var requestUrl = URLRequest(url: url)
+        requestUrl.httpMethod = "POST"
+        // 送信するデータを生成、リクエストにセット.
+        //        let str: NSString = "api_key=\("2FeR2N3--DLdJOV8RmYi7snd4oplNrpy")api_secret=\("0vp2s3Ihe22KEYa_TiWHbLqbbr857EN_")image_url=\(imageString)return_attributes=gender,age" as NSString
+        //        let myData: NSData = str.data(using: String.Encoding.utf8.rawValue)! as NSData
+        //         通信用のConfigを生成.
+        let configer: [String: Any] = ["api_key" : "2FeR2N3--DLdJOV8RmYi7snd4oplNrpy",
+                                       "api_secret": "0vp2s3Ihe22KEYa_TiWHbLqbbr857EN_",
+                                       "image_base64": base64String,
+                                       "return_landmark": 1,
+                                       "return_attributes": "gender,age,beauty,emotion"]
+        // responseJSONーAPIサーバーとの通信処理
+        // Alamofireを使ってhttpリクエストを投げます。getでリクエストを投げる（URL形式）、responseが返ってくる
+        AF.request(url, method: .post, parameters: configer).responseJSON { (response) in
+            print(response)
+            switch response.result {
+            case .success(let value):
+                onSuccess(.success(JSON(value)))
+                let json = JSON(value)
+            case .failure(let error):
+                onError(error)
+                print(error)
+            }
+        }
+    }
+    
+    func viewmodel(onSuccess: (Result<JSON, Error>) -> Void,
+                   onError: (Error) -> Void) {
+        self.getImages(
+            onSuccess: { result in
+                switch result {
+                case .success(let value):
+                    let attributes = value["faces"][0]["attributes"]
+                    let gender = attributes["gender"]["value"].string
+                    let beauty_woman = attributes["beauty"]["female_score"].int
+                    let beauty_man = attributes["beauty"]["male_score"].int
+                    let age = attributes["age"]["value"].int
+                    
+                    let emotion_surprise = attributes["emotion"]["surprise"].int
+                    let emotion_neutral = attributes["emotion"]["neutral"].int
+                    let emotion_anger = attributes["emotion"]["anger"].int
+                    let emotion_disgust = attributes["emotion"]["disgust"].int
+                    let emotion_happiness = attributes["emotion"]["happiness"].int
+                    let emotion_sadness = attributes["emotion"]["sadness"].int
+                    let emotion_fear = attributes["emotion"]["fear"].int
+                    
+                    print(gender ?? "No_Gender",beauty_woman ?? "No_WomanLady",beauty_man ?? "No_NiceGay",age ?? "No_Age")
+                case .failure(let error):
+                    print(error)
+                }
+            },
+            onError: { _ in
+                
+            })
     }
 }
